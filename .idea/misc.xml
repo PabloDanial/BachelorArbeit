@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/blue_border_shape_button_rounded.xml" value="0.36354166666666665" />
+        <entry key="app/src/main/res/layout/activity_intro.xml" value="0.34427083333333336" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.25" />
       </map>
     </option>
