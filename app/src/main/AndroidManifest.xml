@@ -10,8 +10,12 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.DialLiguApp">
         <activity
-                android:name=".activities.IntroActivity"
+                android:name=".activities.InstructionsActivity"
                 android:exported="true"/>
+        <activity
+                android:name=".activities.IntroActivity"
+                android:exported="true"
+                android:theme="@style/Theme.DialLiguApp.NoActionBar"/>
         <activity
                 android:name=".activities.SplashActivity"
                 android:exported="true"
@@ -22,10 +26,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
-            <meta-data
-                    android:name="android.intent.category.LAUNCHER"
-                    android:resource="@drawable/dsa_logo"/>
         </activity>
         <activity
                 android:name=".activities.MainActivity"
