@@ -3,16 +3,41 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven{
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
+            url "https://repo.spring.io/release"
+        }
+        maven {
+            url "https://repository.jboss.org/maven2"
+        }
     }
+
+    tasks.register('performRelease') {
+        def isCI = providers.gradleProperty("isCI")
+        doLast {
+            if (isCI.present) {
+                println("Performing release actions")
+            } else {
+                throw new InvalidUserDataException("Cannot perform release outside of CI")
+            }
+        }
+    }
+
     dependencies {
-        classpath "com.android.tools.build:gradle:7.0.0"
+        classpath 'com.android.tools.build:gradle:7.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0"
         classpath 'com.google.gms:google-services:4.3.13'
-
+        // to config my dependbot.yml
+        classpath "com.github.ben-manes:gradle-versions-plugin:0.46.0"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
+
+apply plugin: "com.github.ben-manes.versions"
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir

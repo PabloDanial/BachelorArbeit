@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-type: "direct"
+        dependency-name: "com.android.support"
+        versions: [">=26.0.0"]
+      - dependency-type: "direct"
+        dependency-name: "com.android.tools.build:gradle"
+        versions: [">=4.0.0"]
+    ignore:
+      - dependency-name: "com.example.some-dependency"
+    autoupdate: true
