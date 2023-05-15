@@ -10,14 +10,14 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.DialLiguApp">
         <activity
-                android:name=".activities.InstructionsActivity"
+                android:name=".view.InstructionsActivity"
                 android:exported="true"/>
         <activity
-                android:name=".activities.IntroActivity"
+                android:name=".view.IntroActivity"
                 android:exported="true"
                 android:theme="@style/Theme.DialLiguApp.NoActionBar"/>
         <activity
-                android:name=".activities.SplashActivity"
+                android:name=".view.SplashActivity"
                 android:exported="true"
                 android:screenOrientation="portrait"
                 android:theme="@style/Theme.DialLiguApp.NoActionBar">
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activities.MainActivity"
+                android:name=".view.MainActivity"
                 android:exported="true">
         </activity>
     </application>

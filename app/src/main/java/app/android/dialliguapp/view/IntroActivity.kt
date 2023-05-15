@@ -1,12 +1,10 @@
-package app.android.dialliguapp.activities
+package app.android.dialliguapp.view
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
 import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
 import android.widget.Button
-import android.widget.TextView
 import app.android.dialliguapp.R
 
 

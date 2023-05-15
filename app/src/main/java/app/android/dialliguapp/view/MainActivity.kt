@@ -1,4 +1,4 @@
-package app.android.dialliguapp.activities
+package app.android.dialliguapp.view
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
