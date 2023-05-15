@@ -24,7 +24,6 @@ class GameNavigator : AppCompatActivity(){
         val playGameButton = findViewById<Button>(R.id.gameButton)
         playGameButton.setOnClickListener {
             startActivity(Intent(this, IntroActivity::class.java))
-
         }
     }
 
