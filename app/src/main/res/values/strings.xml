@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">dialLiguApp</string>
+    <string name="anweisung_text">Hier erhältst du ein paar Wörter, die du den entsprechenden Körperteilen zuordnen musst.</string>
+    <string name="anleitung">Anleitung</string>
 </resources>

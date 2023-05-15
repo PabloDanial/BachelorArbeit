@@ -1,4 +1,4 @@
-package app.android.dialliguapp.view
+package app.android.dialliguapp.ui
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -21,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
         // Intent -> pass data between app components.// Intents are a powerful tool for communication and data sharing between app components in Android
         Handler().postDelayed(
             {
-                startActivity(Intent(this, IntroActivity::class.java))
+                startActivity(Intent(this, GameNavigator::class.java))
                 finish()
             },
             2500

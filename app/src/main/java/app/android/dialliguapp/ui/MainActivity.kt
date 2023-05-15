@@ -1,12 +1,12 @@
-package app.android.dialliguapp.view
+package app.android.dialliguapp.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import app.android.dialliguapp.R
 
-class InstructionsActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_instructions)
+        setContentView(R.layout.activity_main)
     }
 }

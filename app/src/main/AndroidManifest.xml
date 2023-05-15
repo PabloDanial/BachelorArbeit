@@ -10,14 +10,23 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.DialLiguApp">
         <activity
-                android:name=".view.InstructionsActivity"
+                android:name=".ui.InstructionsActivity"
                 android:exported="true"/>
         <activity
-                android:name=".view.IntroActivity"
+                android:name=".ui.GameNavigator"
+                android:exported="true"/>
+        <activity
+                android:name=".ui.AdminActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".ui.PlayerActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".ui.IntroActivity"
                 android:exported="true"
                 android:theme="@style/Theme.DialLiguApp.NoActionBar"/>
         <activity
-                android:name=".view.SplashActivity"
+                android:name=".ui.SplashActivity"
                 android:exported="true"
                 android:screenOrientation="portrait"
                 android:theme="@style/Theme.DialLiguApp.NoActionBar">
@@ -28,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".view.MainActivity"
+                android:name=".ui.MainActivity"
                 android:exported="true">
         </activity>
     </application>
