@@ -48,7 +48,8 @@ class GameNavigator : AppCompatActivity(){
             val userName = editTextUsername.text.toString()
             val password = editTextPassword.text.toString()
 
-            val isCredentialValid = checkCredentials(userName, password)
+            Toast.makeText(this, "I'm gonna change something ... Be patient ...", Toast.LENGTH_SHORT).show()
+            /*val isCredentialValid = checkCredentials(userName, password)
 
             if (isCredentialValid){
                 val intent = Intent(this, AdminActivity::class.java)
@@ -56,10 +57,11 @@ class GameNavigator : AppCompatActivity(){
                 alertDialog.dismiss()
             }else{
                 Toast.makeText(this, "Invalid username or password, please try again", Toast.LENGTH_SHORT).show()
-            }
+            }*/
         }
     }
 
+    /*
     fun checkCredentials(userName: String, password: String): Boolean{
         // Replace this with your actual authentication logic
 
@@ -68,7 +70,7 @@ class GameNavigator : AppCompatActivity(){
         val validPassword = "password"
 
         return userName == validUserName && password == validPassword
-    }
+    }*/
 
 
 }
