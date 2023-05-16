@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import app.android.dialliguapp.R
 
 class GameNavigator : AppCompatActivity(){
@@ -46,8 +47,27 @@ class GameNavigator : AppCompatActivity(){
         buttonSubmit.setOnClickListener {
             val userName = editTextUsername.text.toString()
             val password = editTextPassword.text.toString()
-            alertDialog.dismiss()
+
+            val isCredentialValid = checkCredentials(userName, password)
+
+            if (isCredentialValid){
+                val intent = Intent(this, AdminActivity::class.java)
+                startActivity(intent)
+                alertDialog.dismiss()
+            }else{
+                Toast.makeText(this, "Invalid username or password, please try again", Toast.LENGTH_SHORT).show()
+            }
         }
+    }
+
+    fun checkCredentials(userName: String, password: String): Boolean{
+        // Replace this with your actual authentication logic
+
+        // Check if the username and password meet your validation criteria
+        val validUserName = "admin"
+        val validPassword = "password"
+
+        return userName == validUserName && password == validPassword
     }
 
 
