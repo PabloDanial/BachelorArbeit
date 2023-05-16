@@ -28,6 +28,10 @@
                 android:exported="true"
                 android:theme="@style/Theme.DialLiguApp.NoActionBar" />
         <activity
+                android:name=".ui.AdminRegisteringPopUp"
+                android:exported="true"
+                android:theme="@style/Theme.DialLiguApp.NoActionBar" />
+        <activity
                 android:name=".ui.GameNavigator"
                 android:exported="true"
                 android:theme="@style/Theme.DialLiguApp.NoActionBar" />
