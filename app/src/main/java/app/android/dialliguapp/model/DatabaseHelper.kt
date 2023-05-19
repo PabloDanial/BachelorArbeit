@@ -18,36 +18,50 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
     //if it's necessary
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        if (oldVersion < 2)
-            db?.execSQL("ALTER TABLE $TABLE_NAME ADD COLUMN $COL_EMAIL TEXT")
+       // if (oldVersion < 2)
+         //   db?.execSQL("ALTER TABLE $TABLE_NAME ADD COLUMN $COL_EMAIL TEXT")
     }
 
 
     companion object{
-        private const val DATABASE_NAME = "credential.db"
-        private const val DATABASE_VERSION = 3
-        private const val TABLE_NAME = "user"
+        const val DATABASE_NAME = "credential.db"
+        const val DATABASE_VERSION = 3
+        const val TABLE_NAME = "admin_table"
         private const val COL_ID = "id"
-        private const val COL_USERNAME = "username"
-        private const val COL_PASSWORD = "password"
-        private const val COL_EMAIL = "username@gmail.com"
+        const val COL_USERNAME = "username"
+        const val COL_PASSWORD = "password"
     }
 
 
-    val dbHelper = DatabaseHelper(context)
-    val db = dbHelper.writableDatabase // add data (table) to database
+    private val dbHelper = DatabaseHelper(context)
 
-    fun insertCredentialsDb(username: String, password: String) {
+    fun insertCredentialsDb() {
         val values = ContentValues()
-        values.put(DatabaseHelper.COL_USERNAME, username)
-        values.put(DatabaseHelper.COL_PASSWORD, password)
-
-        db.insert(DatabaseHelper.TABLE_NAME, null, values)
+        values.put(COL_USERNAME,"test")
+        values.put(COL_PASSWORD, "test")
+        val db = writableDatabase // add data (table) to database
+        db.insert(TABLE_NAME, null, values)
         db.close()
     }
 
 
 
+    fun retrieveCredentialFromDb(username: String, password: String): Boolean {
+        val selection = "$COL_USERNAME = ? AND $COL_PASSWORD = ?"
+        val selectionArgs = arrayOf(username, password)
+        val cursor = dbHelper.readableDatabase.query(
+            TABLE_NAME,
+            arrayOf(COL_USERNAME, COL_PASSWORD),
+            null,
+            null,
+            null,
+            null,
+            null
+        )
+        val isValidCredentials = cursor.count > 0
+        cursor.close()
+        return isValidCredentials
+    }
 
 
 }

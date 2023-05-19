@@ -1,4 +1,5 @@
 package app.android.dialliguapp.ui
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
@@ -8,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import app.android.dialliguapp.R
+import app.android.dialliguapp.model.DatabaseHelper
 
 class GameNavigator : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +33,7 @@ class GameNavigator : AppCompatActivity(){
         }
     }
 
+    @SuppressLint("Range")
     fun showAdminRegisteringPopUp(){
         val dialogBuilder = AlertDialog.Builder(this)
         val inflater = layoutInflater
@@ -45,23 +48,24 @@ class GameNavigator : AppCompatActivity(){
         alertDialog.show()
 
         buttonSubmit.setOnClickListener {
+
             val userName = editTextUsername.text.toString()
             val password = editTextPassword.text.toString()
 
-            Toast.makeText(this, "I'm gonna change something ... Be patient ...", Toast.LENGTH_SHORT).show()
-            /*val isCredentialValid = checkCredentials(userName, password)
+            val dbHelper = DatabaseHelper(this)
+            dbHelper.insertCredentialsDb()
+
+            val isCredentialValid = dbHelper.retrieveCredentialFromDb(userName, password)
 
             if (isCredentialValid){
-                val intent = Intent(this, AdminActivity::class.java)
-                startActivity(intent)
-                alertDialog.dismiss()
+                Toast.makeText(this, "Credentials are valid!", Toast.LENGTH_SHORT).show()
             }else{
-                Toast.makeText(this, "Invalid username or password, please try again", Toast.LENGTH_SHORT).show()
-            }*/
+                Toast.makeText(this, "Credentials are not valid!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
-    /*
+
     fun checkCredentials(userName: String, password: String): Boolean{
         // Replace this with your actual authentication logic
 
@@ -70,7 +74,7 @@ class GameNavigator : AppCompatActivity(){
         val validPassword = "password"
 
         return userName == validUserName && password == validPassword
-    }*/
+    }
 
 
 }
